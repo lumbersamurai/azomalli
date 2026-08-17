@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import FlowingMenu from './FlowingMenu';
 
 const NAV_LINKS = [
+  { link: '#inicio', text: 'Inicio', image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80' },
   { link: '#nosotros', text: 'Nosotros', image: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80' },
+  { link: '#galeria', text: 'Galería', image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80' },
   { link: '#terapeutas', text: 'Terapeutas', image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80' },
-  { link: '#servicios', text: 'Servicios', image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80' },
-  { link: '#eventos', text: 'Eventos', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80' },
-  { link: '#talleres', text: 'Talleres', image: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80' },
-  { link: '#contacto', text: 'Agendar cita', image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80' }
+  { link: '#servicios', text: 'Servicios', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80' },
+  { link: '#cta', text: 'Comienza hoy', image: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80' }
 ];
 
 function Brand() {
