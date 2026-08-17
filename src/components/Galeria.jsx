@@ -3,10 +3,10 @@ import { gsap } from 'gsap';
 
 import './AccordionGallery.css';
 
-import imgYoga from './imagenes/yoga.jpeg';
-import imgNosotras from './imagenes/nosotras.png';
-import imgTerapia from './imagenes/terapia.png';
-import imgBienvenidos from './imagenes/bienvenidos.jpeg';
+import imgYoga from './imagenes/yoga.webp';
+import imgNosotras from './imagenes/nosotras.webp';
+import imgTerapia from './imagenes/terapia.webp';
+import imgBienvenidos from './imagenes/bienvenidos.webp';
 
 const DEFAULT_ITEMS = [
   { image: imgBienvenidos, label: 'Bienvenidos', link: '#' },

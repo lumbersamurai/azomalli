@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import './DriftWall.css';
 
-import imgTerapia2 from './imagenes/terapia2.jpeg';
-import imgTerapia3 from './imagenes/terapia3.jpeg';
-import imgTerapia4 from './imagenes/terapia4.jpeg';
-import imgTerapiaCabeza from './imagenes/terapiaCabeza.jpeg';
-import imgYoga2 from './imagenes/yoga2.jpeg';
-import imgYogaGrupal from './imagenes/yogaGrupal.jpeg';
-import imgEspacioGisel from './imagenes/espacioGisel.jpeg';
+import imgTerapia2 from './imagenes/terapia2.webp';
+import imgTerapia3 from './imagenes/terapia3.webp';
+import imgTerapia4 from './imagenes/terapia4.webp';
+import imgTerapiaCabeza from './imagenes/terapiaCabeza.webp';
+import imgYoga2 from './imagenes/yoga2.webp';
+import imgYogaGrupal from './imagenes/yogaGrupal.webp';
+import imgEspacioGisel from './imagenes/espacioGisel.webp';
 
 const misImagenesLocales = [
   { image: imgTerapia2, title: 'Terapia 2' },
