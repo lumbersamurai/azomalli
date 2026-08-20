@@ -712,6 +712,16 @@ em {
     position: relative;
 }
 
+.terapeuta-foto-img {
+    display: block;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 24px rgba(40, 26, 43, 0.15);
+}
+
 .foto-placeholder {
     width: 90px;
     height: 90px;
@@ -1036,42 +1046,33 @@ em {
     backdrop-filter: blur(4px);
 }
 
-/* --- Sistema de Pestañas (Tabs) --- */
-.filtros-oferta {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-}
-
-.filtros-oferta .tab-btn {
-    background: transparent;
-    border: 1.5px solid var(--blush-dark);
-    color: var(--stone);
-    padding: 10px 28px;
-    border-radius: var(--radius-xl);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--transition);
-}
-
-.filtros-oferta .tab-btn.active,
-.filtros-oferta .tab-btn:hover {
-    background: var(--sage);
-    border-color: var(--sage);
-    color: var(--ink);
-    box-shadow: 0 4px 15px rgba(236, 188, 247, 0.4);
-}
-
-/* --- Tarjetas Unificadas --- */
 .oferta-grid {
     display: grid;
-    /* Esto hace que las tarjetas se acomoden solas dependiendo del tamaño de la pantalla */
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 28px;
+    gap: 40px;
+    align-items: start;
+}
+
+.servicios-filtros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 28px 0 30px;
+}
+
+.servicios-filtro {
+    padding: 10px 18px;
+    font-size: 0.78rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.servicios-filtro.is-active {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: var(--azomalli-text);
 }
 
 .oferta-card {
@@ -1082,6 +1083,8 @@ em {
     display: flex;
     flex-direction: column;
     transition: all var(--transition);
+    margin-bottom: 0;
+    box-shadow: var(--shadow);
 }
 
 .oferta-card:hover {
@@ -1094,7 +1097,6 @@ em {
     align-self: flex-start;
     background: rgba(236, 188, 247, 0.35);
     color: #6B347A;
-    /* Magenta oscuro legible */
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -1120,8 +1122,6 @@ em {
 }
 
 .oferta-detalles {
-    margin-top: auto;
-    /* Empuja los detalles hacia abajo si la tarjeta es muy alta */
     margin-bottom: 28px;
     padding-left: 20px;
     font-size: 0.85rem;
@@ -1132,12 +1132,10 @@ em {
 
 .oferta-detalles li {
     color: #8C4A9E;
-    /* Viñetas en color magenta */
 }
 
 .oferta-detalles li span {
     color: var(--stone);
-    /* Texto de la lista en gris oscuro para no saturar */
     line-height: 1.6;
 }
 
@@ -1151,9 +1149,248 @@ em {
     display: inline-block;
 }
 
-.oferta-link:hover {
-    letter-spacing: 0.03em;
-    color: #6B347A;
+/* ======================================
+   PERFIL TERAPEUTA
+====================================== */
+.perfil-terapeuta-page {
+    min-height: 100vh;
+    padding: 56px 0 80px;
+    background: linear-gradient(180deg, rgba(248, 242, 233, 0.92), rgba(244, 235, 222, 0.72));
+}
+
+.perfil-terapeuta-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.perfil-terapeuta-hero-layout {
+    display: grid;
+    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.perfil-terapeuta-foto {
+    margin: 0;
+    width: 100%;
+    max-width: 240px;
+}
+
+.perfil-terapeuta-foto img,
+.foto-placeholder--perfil {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(236, 188, 247, 0.5), rgba(166, 169, 251, 0.5));
+    box-shadow: 0 18px 36px rgba(43, 24, 34, 0.14);
+}
+
+.foto-placeholder--perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-placeholder--perfil span {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+}
+
+.perfil-terapeuta-hero-copy {
+    min-width: 0;
+}
+
+.perfil-terapeuta-hero,
+.perfil-terapeuta-bio,
+.perfil-terapeuta-constancias {
+    background: rgba(255, 252, 247, 0.88);
+    border: 1px solid rgba(176, 142, 149, 0.16);
+    border-radius: 28px;
+    padding: 32px 28px;
+    box-shadow: 0 12px 30px rgba(43, 24, 34, 0.06);
+}
+
+.perfil-terapeuta-kicker {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7b4f85;
+    margin-bottom: 14px;
+}
+
+.perfil-terapeuta-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    color: #5a355f;
+    line-height: 1.05;
+    margin-bottom: 14px;
+}
+
+.perfil-terapeuta-especialidad {
+    font-size: 1.08rem;
+    color: var(--stone);
+    line-height: 1.7;
+    max-width: 760px;
+}
+
+.perfil-terapeuta-bio h2,
+.perfil-terapeuta-section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+    color: #5a355f;
+    margin-bottom: 12px;
+}
+
+.perfil-terapeuta-bio p {
+    font-size: 1.02rem;
+    line-height: 1.9;
+    color: var(--stone);
+    max-width: 860px;
+}
+
+.perfil-terapeuta-constancias {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.perfil-terapeuta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 22px;
+}
+
+.perfil-constancia-card {
+    margin: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 240, 233, 0.98));
+    border: 1px solid rgba(176, 142, 149, 0.16);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(43, 24, 34, 0.05);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.perfil-constancia-trigger {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.perfil-constancia-trigger:focus-visible {
+    outline: 3px solid rgba(166, 169, 251, 0.7);
+    outline-offset: 4px;
+}
+
+.perfil-constancia-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(146, 174, 142, 0.38);
+    box-shadow: 0 18px 36px rgba(43, 24, 34, 0.12);
+}
+
+.perfil-constancia-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    padding: 10px;
+    background: #f4ede6;
+}
+
+.perfil-constancia-card figcaption {
+    padding: 16px 16px 18px;
+    color: #5a355f;
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    line-height: 1.45;
+}
+
+.perfil-terapeuta-empty {
+    background: rgba(146, 174, 142, 0.14);
+    border: 1px dashed rgba(146, 174, 142, 0.38);
+    border-radius: 22px;
+    padding: 24px;
+    color: #5b6757;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.perfil-terapeuta-back {
+    align-self: flex-start;
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 14px 22px;
+    border-radius: 999px;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.perfil-terapeuta-back:hover {
+    transform: translateY(-2px);
+    background: #5a355f;
+    box-shadow: 0 12px 26px rgba(43, 24, 34, 0.16);
+}
+
+.constancia-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    background: rgba(24, 14, 27, 0.82);
+    backdrop-filter: blur(10px);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.constancia-lightbox-panel {
+    width: min(96vw, 980px);
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: rgba(255, 252, 247, 0.98);
+    border-radius: 28px;
+    padding: 18px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+.constancia-lightbox-panel img {
+    width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    background: #f4ede6;
+    border-radius: 20px;
+}
+
+.constancia-lightbox-panel p {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: #5a355f;
+}
+
+.constancia-lightbox-close {
+    align-self: flex-end;
+    border: 0;
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.95);
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.constancia-lightbox-close:hover {
+    background: #5a355f;
 }
 
 /* ======================================
@@ -1473,6 +1710,16 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .perfil-terapeuta-hero-layout {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .perfil-terapeuta-foto {
+        max-width: 280px;
+    }
+
     .terapeutas-grid {
         grid-template-columns: 1fr;
     }
@@ -1538,6 +1785,14 @@ footer {
     .hero-actions .btn-primary,
     .hero-actions .btn-ghost {
         text-align: center;
+    }
+
+    .constancia-lightbox {
+        padding: 14px;
+    }
+
+    .constancia-lightbox-panel {
+        padding: 14px;
     }
 
 }

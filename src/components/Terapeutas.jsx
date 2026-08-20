@@ -1,4 +1,5 @@
-import { terapeutasList } from '../data/content';
+import { Link } from 'react-router-dom';
+import { terapeutasData } from '../data/terapeutas';
 
 export default function Terapeutas() {
   return (
@@ -13,8 +14,8 @@ export default function Terapeutas() {
           </h2>
         </div>
         <div className="terapeutas-grid">
-          {terapeutasList.map((t, i) => (
-            <TerapeutaCard key={t.nombre} terapeuta={t} index={i} />
+          {terapeutasData.map((terapeuta) => (
+            <TerapeutaCard key={terapeuta.id} terapeuta={terapeuta} />
           ))}
         </div>
       </div>
@@ -22,38 +23,34 @@ export default function Terapeutas() {
   );
 }
 
-function TerapeutaCard({ terapeuta: t, index }) {
+function TerapeutaCard({ terapeuta }) {
+  const iniciales = terapeuta.nombre
+    .split(' ')
+    .filter(Boolean)
+    .map((palabra) => palabra[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+  const fotoSrc = terapeuta.foto;
+
   return (
     <div className="terapeuta-card">
       <div className="terapeuta-foto">
-        <div className="foto-placeholder">
-          <span>{t.iniciales}</span>
-        </div>
+        {fotoSrc ? (
+          <img className="terapeuta-foto-img" src={fotoSrc} alt={terapeuta.nombre} loading="lazy" />
+        ) : (
+          <div className="foto-placeholder" aria-hidden="true">
+            <span>{iniciales}</span>
+          </div>
+        )}
       </div>
       <div className="terapeuta-info">
-        <h3>{t.nombre}</h3>
-        <p className="terapeuta-especialidad">{t.especialidad}</p>
-        {t.bios.map((bio) => (
-          <p className="terapeuta-bio" key={bio}>
-            {bio}
-          </p>
-        ))}
-        <div className="terapeuta-tags">
-          {t.tags.map((tag, i) => (
-            <span key={`${tag}-${i}`}>{tag}</span>
-          ))}
-        </div>
-        <div className="terapeuta-numero">
-          <strong>Telefono:</strong> {t.telefono}
-        </div>
-        <a
-          href={`https://wa.me/${t.whatsapp}?text=${t.whatsappMsg}`}
-          target="_blank"
-          rel="noreferrer"
-          className="btn-terapeuta"
-        >
-          Solicita una cita
-        </a>
+        <h3>{terapeuta.nombre}</h3>
+        <p className="terapeuta-especialidad">{terapeuta.especialidad}</p>
+        <p className="terapeuta-bio">{terapeuta.descripcion}</p>
+        <Link to={`/terapeuta/${terapeuta.id}`} className="btn-terapeuta">
+          Ver trayectoria
+        </Link>
       </div>
     </div>
   );

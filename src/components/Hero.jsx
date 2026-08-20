@@ -7,24 +7,25 @@ export default function Hero() {
         <div className="hero-content">
           <p className="hero-eyebrow">Centro de Bienestar Holístico</p>
 
-          {/* Título con animación en cascada */}
           <h1 className="hero-title">
             <span className="text-focus-in" style={{ display: 'inline-block', animationDelay: '0.1s' }}>
-              Sana tu
+              Centro Terapéutico
             </span>
             <br />
             <em className="text-focus-in" style={{ display: 'inline-block', animationDelay: '0.4s' }}>
-              alma, mente
+              Azomalli
             </em>
-            <br />
-            <span className="text-focus-in" style={{ display: 'inline-block', animationDelay: '0.7s' }}>
-              y cuerpo
-            </span>
           </h1>
 
           <p className="hero-subtitle">
-            Terapias holísticas, constelaciones familiares y acompañamiento profesional para tu
-            transformación interior.
+            Encuentra tu paz interior
+          </p>
+
+          <p className="hero-description">
+            Te acompañamos en tu camino de evolución personal y el logro de una vida plena
+            apoyando en la resolución de conflictos que ocasionan deterioro o bloqueo en tus
+            relaciones, tu abundancia, tu salud o tu trabajo, mediante la aplicación de terapias
+            tradicionales, holísticas, alternativas y complementarias.
           </p>
           <div className="hero-actions">
             <a href="#terapeutas" className="btn-primary">

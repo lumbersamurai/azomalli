@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { link: '#galeria', text: 'Galería', image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80' },
   { link: '#terapeutas', text: 'Terapeutas', image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80' },
   { link: '#servicios', text: 'Servicios', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80' },
-  { link: '#cta', text: 'Comienza hoy', image: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80' }
+  { link: '#contacto', text: 'Comienza hoy', image: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80' }
 ];
 
 function Brand() {
