@@ -1,6 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { terapeutasData } from '../data/terapeutas';
+
+const imagenesPerfil = import.meta.glob('./Perfil Gisel/*.{webp,png,jpg,jpeg}', {
+  eager: true,
+  import: 'default',
+});
+
+function resolverImagen(ruta) {
+  if (!ruta) return null;
+  const nombreArchivo = ruta.split('/').pop();
+  const entrada = Object.entries(imagenesPerfil).find(([clave]) =>
+    clave.endsWith(`/${nombreArchivo}`)
+  );
+  return entrada ? entrada[1] : null;
+}
 
 export default function PerfilTerapeuta() {
   const { id } = useParams();
@@ -11,24 +25,17 @@ export default function PerfilTerapeuta() {
     if (!constanciaActiva) return undefined;
 
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setConstanciaActiva(null);
-      }
+      if (event.key === 'Escape') setConstanciaActiva(null);
     };
 
-    const bodyOverflowAnterior = document.body.style.overflow;
+    document.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = bodyOverflowAnterior;
-      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
     };
   }, [constanciaActiva]);
-
-  const cerrarConstancia = () => setConstanciaActiva(null);
-  const abrirConstancia = (constancia) => setConstanciaActiva(constancia);
-  const obtenerUrlConstancia = (rutaImagen) => new URL(rutaImagen, import.meta.url).href;
 
   if (!terapeuta) {
     return (
@@ -40,9 +47,9 @@ export default function PerfilTerapeuta() {
             <p>Revisa la URL o vuelve al inicio para elegir otro perfil.</p>
           </header>
 
-          <Link to="/" className="perfil-terapeuta-back">
+          <a href="/" className="perfil-terapeuta-back">
             Volver
-          </Link>
+          </a>
         </div>
       </main>
     );
@@ -52,30 +59,17 @@ export default function PerfilTerapeuta() {
     <main className="perfil-terapeuta-page">
       <div className="container perfil-terapeuta-shell">
         <header className="perfil-terapeuta-hero">
-          <span className="perfil-terapeuta-kicker">Perfil de terapeuta</span>
-          <div className="perfil-terapeuta-hero-layout">
-            <figure className="perfil-terapeuta-foto">
-              {terapeuta.foto ? (
-                <img src={terapeuta.foto} alt={terapeuta.nombre} />
-              ) : (
-                <div className="foto-placeholder foto-placeholder--perfil" aria-hidden="true">
-                  <span>
-                    {terapeuta.nombre
-                      .split(' ')
-                      .filter(Boolean)
-                      .map((palabra) => palabra[0])
-                      .join('')
-                      .slice(0, 2)
-                      .toUpperCase()}
-                  </span>
-                </div>
-              )}
-            </figure>
-            <div className="perfil-terapeuta-hero-copy">
-              <h1>{terapeuta.nombre}</h1>
-              <p className="perfil-terapeuta-especialidad">{terapeuta.especialidad}</p>
+          {terapeuta.foto && resolverImagen(terapeuta.foto) && (
+            <div className="perfil-terapeuta-foto">
+              <img
+                src={resolverImagen(terapeuta.foto)}
+                alt={`Foto de ${terapeuta.nombre}`}
+              />
             </div>
-          </div>
+          )}
+          <span className="perfil-terapeuta-kicker">Perfil de terapeuta</span>
+          <h1>{terapeuta.nombre}</h1>
+          <p className="perfil-terapeuta-especialidad">{terapeuta.especialidad}</p>
         </header>
 
         <section className="perfil-terapeuta-bio">
@@ -94,53 +88,52 @@ export default function PerfilTerapeuta() {
             </div>
           ) : (
             <div className="perfil-terapeuta-grid">
-              {terapeuta.constancias.map((constancia) => (
-                <figure className="perfil-constancia-card" key={constancia.titulo}>
+              {terapeuta.constancias.map((constancia) => {
+                const src = resolverImagen(constancia.rutaImagen);
+
+                if (!src) return null;
+
+                return (
                   <button
                     type="button"
-                    className="perfil-constancia-trigger"
-                    onClick={() => abrirConstancia(constancia)}
-                    aria-label={`Abrir ${constancia.titulo} en grande`}
+                    className="perfil-constancia-card"
+                    key={constancia.titulo}
+                    onClick={() => setConstanciaActiva({ ...constancia, src })}
                   >
-                    <img
-                      src={obtenerUrlConstancia(constancia.rutaImagen)}
-                      alt={constancia.titulo}
-                      loading="lazy"
-                    />
+                    <figure>
+                      <img src={src} alt={constancia.titulo} loading="lazy" />
+                      <figcaption>{constancia.titulo}</figcaption>
+                    </figure>
                   </button>
-                  <figcaption>{constancia.titulo}</figcaption>
-                </figure>
-              ))}
+                );
+              })}
             </div>
           )}
         </section>
 
-        <Link to="/" className="perfil-terapeuta-back">
+        <a href="/" className="perfil-terapeuta-back">
           Volver
-        </Link>
+        </a>
       </div>
 
       {constanciaActiva && (
         <div
-          className="constancia-lightbox"
-          role="dialog"
-          aria-modal="true"
-          aria-label={constanciaActiva.titulo}
-          onClick={cerrarConstancia}
+          className="perfil-constancia-modal-overlay"
+          onClick={() => setConstanciaActiva(null)}
         >
-          <div className="constancia-lightbox-panel" onClick={(event) => event.stopPropagation()}>
+          <div
+            className="perfil-constancia-modal"
+            onClick={(event) => event.stopPropagation()}
+          >
             <button
               type="button"
-              className="constancia-lightbox-close"
-              onClick={cerrarConstancia}
-              aria-label="Cerrar vista ampliada"
+              className="perfil-constancia-modal-cerrar"
+              onClick={() => setConstanciaActiva(null)}
+              aria-label="Cerrar"
             >
-              Cerrar
+              ×
             </button>
-            <img
-              src={obtenerUrlConstancia(constanciaActiva.rutaImagen)}
-              alt={constanciaActiva.titulo}
-            />
+            <img src={constanciaActiva.src} alt={constanciaActiva.titulo} />
             <p>{constanciaActiva.titulo}</p>
           </div>
         </div>
