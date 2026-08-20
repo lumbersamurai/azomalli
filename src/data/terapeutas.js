@@ -1,5 +1,5 @@
-import giselFoto from '../components/imagenes/gisel.webp';
-import maruFoto from '../components/imagenes/maru.webp';
+import giselFoto from "../components/imagenes/gisel.webp";
+import maruFoto from "../components/imagenes/maru.webp";
 
 export const terapeutasData = [
   {

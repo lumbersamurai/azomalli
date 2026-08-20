@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { terapeutasData } from '../data/terapeutas';
 
+// Vite necesita rutas ESTÁTICAS para poder empaquetar las imágenes en el build.
 const imagenesPerfil = import.meta.glob('./Perfil Gisel/*.{webp,png,jpg,jpeg}', {
   eager: true,
   import: 'default',
@@ -14,6 +15,17 @@ function resolverImagen(ruta) {
     clave.endsWith(`/${nombreArchivo}`)
   );
   return entrada ? entrada[1] : null;
+}
+
+function obtenerIniciales(nombre) {
+  if (!nombre) return '';
+  return nombre
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((parte) => parte[0])
+    .join('')
+    .toUpperCase();
 }
 
 export default function PerfilTerapeuta() {
@@ -55,21 +67,29 @@ export default function PerfilTerapeuta() {
     );
   }
 
+  const fotoSrc = terapeuta.foto || null;
+
   return (
     <main className="perfil-terapeuta-page">
       <div className="container perfil-terapeuta-shell">
         <header className="perfil-terapeuta-hero">
-          {terapeuta.foto && resolverImagen(terapeuta.foto) && (
+          <div className="perfil-terapeuta-hero-layout">
             <div className="perfil-terapeuta-foto">
-              <img
-                src={resolverImagen(terapeuta.foto)}
-                alt={`Foto de ${terapeuta.nombre}`}
-              />
+              {fotoSrc ? (
+                <img src={fotoSrc} alt={`Foto de ${terapeuta.nombre}`} />
+              ) : (
+                <div className="foto-placeholder--perfil">
+                  <span>{obtenerIniciales(terapeuta.nombre)}</span>
+                </div>
+              )}
             </div>
-          )}
-          <span className="perfil-terapeuta-kicker">Perfil de terapeuta</span>
-          <h1>{terapeuta.nombre}</h1>
-          <p className="perfil-terapeuta-especialidad">{terapeuta.especialidad}</p>
+
+            <div className="perfil-terapeuta-hero-copy">
+              <span className="perfil-terapeuta-kicker">Perfil de terapeuta</span>
+              <h1>{terapeuta.nombre}</h1>
+              <p className="perfil-terapeuta-especialidad">{terapeuta.especialidad}</p>
+            </div>
+          </div>
         </header>
 
         <section className="perfil-terapeuta-bio">
@@ -94,17 +114,17 @@ export default function PerfilTerapeuta() {
                 if (!src) return null;
 
                 return (
-                  <button
-                    type="button"
-                    className="perfil-constancia-card"
-                    key={constancia.titulo}
-                    onClick={() => setConstanciaActiva({ ...constancia, src })}
-                  >
-                    <figure>
+                  <figure className="perfil-constancia-card" key={constancia.titulo}>
+                    <button
+                      type="button"
+                      className="perfil-constancia-trigger"
+                      onClick={() => setConstanciaActiva({ ...constancia, src })}
+                      aria-label={`Ver constancia en grande: ${constancia.titulo}`}
+                    >
                       <img src={src} alt={constancia.titulo} loading="lazy" />
-                      <figcaption>{constancia.titulo}</figcaption>
-                    </figure>
-                  </button>
+                    </button>
+                    <figcaption>{constancia.titulo}</figcaption>
+                  </figure>
                 );
               })}
             </div>
@@ -118,20 +138,19 @@ export default function PerfilTerapeuta() {
 
       {constanciaActiva && (
         <div
-          className="perfil-constancia-modal-overlay"
+          className="constancia-lightbox"
           onClick={() => setConstanciaActiva(null)}
         >
           <div
-            className="perfil-constancia-modal"
+            className="constancia-lightbox-panel"
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
-              className="perfil-constancia-modal-cerrar"
+              className="constancia-lightbox-close"
               onClick={() => setConstanciaActiva(null)}
-              aria-label="Cerrar"
             >
-              ×
+              Cerrar ×
             </button>
             <img src={constanciaActiva.src} alt={constanciaActiva.titulo} />
             <p>{constanciaActiva.titulo}</p>
