@@ -39,6 +39,7 @@ function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marquee
   const animationRef = useRef(null);
   const [repetitions, setRepetitions] = useState(4);
   const animationDefaults = { duration: 0.6, ease: 'expo' };
+  const [isTouchActive, setIsTouchActive] = useState(false);
 
   useEffect(() => {
     const calculateRepetitions = () => {
@@ -76,6 +77,8 @@ function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marquee
     return event.clientY - rect.top < rect.height / 2 ? 'top' : 'bottom';
   };
 
+  const isTouchDevice = () => typeof window !== 'undefined' && (('ontouchstart' in window) || navigator.maxTouchPoints > 0);
+
   const reveal = event => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
     const edge = closestEdge(event);
@@ -93,9 +96,25 @@ function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marquee
       .to(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' }, 0);
   };
 
+  const handleInteraction = event => {
+    if (isTouchDevice() && !isTouchActive) {
+      event.preventDefault();
+      setIsTouchActive(true);
+      reveal(event);
+      return;
+    }
+
+    if (onNavigate) onNavigate();
+  };
+
+  const handleMouseLeave = event => {
+    setIsTouchActive(false);
+    hide(event);
+  };
+
   return (
     <div className="menu__item" ref={itemRef} style={{ borderColor }}>
-      <a className="menu__item-link" href={link} onMouseEnter={reveal} onMouseLeave={hide} onClick={onNavigate} style={{ color: textColor }}>
+      <a className="menu__item-link" href={link} onMouseEnter={reveal} onMouseLeave={handleMouseLeave} onClick={handleInteraction} style={{ color: textColor }}>
         {text}
       </a>
       <div className="marquee" ref={marqueeRef} style={{ backgroundColor: marqueeBgColor }}>
@@ -112,6 +131,8 @@ function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marquee
       </div>
     </div>
   );
+
+
 }
 
 export default FlowingMenu;

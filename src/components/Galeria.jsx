@@ -166,6 +166,8 @@ const AccordionGallery = ({
     if (i !== active) {
       e.preventDefault();
       setActive(i);
+    } else if (!items[i].link || items[i].link === '#') {
+      e.preventDefault();
     }
   };
 
@@ -181,6 +183,7 @@ const AccordionGallery = ({
 
   return (
     <div
+      id="galeria"
       ref={rootRef}
       className={`accordion-gallery${vertical ? ' accordion-gallery--vertical' : ''}${className ? ` ${className}` : ''}`}
       style={{

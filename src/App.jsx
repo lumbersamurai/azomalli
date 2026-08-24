@@ -4,11 +4,14 @@ import Nosotros from './components/Nosotros';
 import Galeria from './components/Galeria';
 import Terapeutas from './components/Terapeutas';
 import Servicios from './components/Servicios';
+import Testimonios from './components/Testimonios';
+import Ubicacion from './components/Ubicacion';
 import CtaSection from './components/CtaSection';
 import Footer from './components/Footer';
 import SoftAurora from './components/SoftAurora';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
+
 
 function App() {
   useScrollReveal();
@@ -42,6 +45,8 @@ function App() {
         <Galeria />
         <Terapeutas />
         <Servicios />
+        <Testimonios />
+        <Ubicacion />
         <CtaSection />
         <Footer />
       </div>

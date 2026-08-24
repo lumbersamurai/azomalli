@@ -44,6 +44,15 @@ export const serviciosData = [
       "Procedimientos clínicos y estéticos que promueven el alivio físico, el rejuvenecimiento natural y la estimulación de las defensas del organismo. Incluye Acupuntura Estética y Belleza Facial (zonas: rostro, brazos, busto, abdomen y glúteos), Acupuntura para el Dolor y Sistema Inmunológico orientada a disminuir dolores crónicos e inflamación, y Auriculoterapia mediante balines en la oreja para mitigar cansancio y modular estrés."
   },
   {
+    id: "auriculoterapia",
+    titulo: "Auriculoterapia",
+    categoriaFiltro: "Terapias",
+    etiquetaSuperior: "TERAPIA HOLÍSTICA",
+    descripcionBreve: "A través de puntos en la oreja, ayuda a controlar ansiedad, dolores, insomnio y peso para mejorar tu bienestar día a día.",
+    detallesLista: [],
+    descripcionLarga: "A través de puntos en la oreja, ayuda a controlar ansiedad, dolores, insomnio y peso para mejorar tu bienestar día a día."
+  },
+  {
     id: "yoga",
     titulo: "Yoga Terapéutico Integral (YOGARE)",
     categoriaFiltro: "Talleres",
@@ -72,13 +81,22 @@ export const serviciosData = [
     descripcionLarga: "Consultas terapéuticas individuales enfocadas en restablecer la salud bioenergética y emocional a través de la integración de herramientas sutiles de sanación. Técnicas incluidas: Psicoterapia Gestalt, restauración de campo áurico, activación de rucux, equilibrio de elementos mediante geometría sagrada, conoterapia (limpieza de oídos), lectura de Registros Akáshicos, y procesos de reprogramación y limpieza energética."
   },
   {
-    id: "flores-de-bach-y-herbolaria",
-    titulo: "Flores de Bach y Herbolaria",
+    id: "flores-de-bach",
+    titulo: "Flores de Bach",
     categoriaFiltro: "Terapias",
     etiquetaSuperior: "TERAPIA HOLÍSTICA",
-    descripcionBreve: "Información y precios próximamente.",
+    descripcionBreve: "Esencias naturales que equilibran tus emociones: ansiedad, tristeza, miedo o falta de confianza. Una ayuda suave y efectiva para recuperar tu paz interior.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Esencias naturales que equilibran tus emociones: ansiedad, tristeza, miedo o falta de confianza. Una ayuda suave y efectiva para recuperar tu paz interior."
+  },
+  {
+    id: "herbolaria",
+    titulo: "Herbolaria",
+    categoriaFiltro: "Terapias",
+    etiquetaSuperior: "TERAPIA HOLÍSTICA",
+    descripcionBreve: "El poder de las plantas al servicio de tu salud. Infusiones y preparados naturales que apoyan tu cuerpo, fortalecen defensas y promueven bienestar integral.",
+    detallesLista: [],
+    descripcionLarga: "El poder de las plantas al servicio de tu salud. Infusiones y preparados naturales que apoyan tu cuerpo, fortalecen defensas y promueven bienestar integral."
   },
   {
     id: "aromaterapia",
@@ -94,63 +112,63 @@ export const serviciosData = [
     titulo: "Reiki",
     categoriaFiltro: "Terapias",
     etiquetaSuperior: "TERAPIA HOLÍSTICA",
-    descripcionBreve: "Información y precios próximamente.",
+    descripcionBreve: "Canaliza energía universal para equilibrar tu cuerpo, mente y espíritu. Te brinda calma, vitalidad y armonía interior.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Canaliza energía universal para equilibrar tu cuerpo, mente y espíritu. Te brinda calma, vitalidad y armonía interior."
   },
   {
     id: "biodescodificacion",
-    titulo: "Biodescodificacion",
+    titulo: "Biodescodificación",
     categoriaFiltro: "Terapias",
     etiquetaSuperior: "TERAPIA HOLÍSTICA",
-    descripcionBreve: "Información y precios próximamente.",
+    descripcionBreve: "Método terapéutico que busca identificar el origen emocional de las enfermedades y liberar bloqueos internos, favoreciendo la sanación integral del cuerpo y la mente.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Método terapéutico que busca identificar el origen emocional de las enfermedades y liberar bloqueos internos, favoreciendo la sanación integral del cuerpo y la mente."
   },
   {
     id: "tetahealing",
-    titulo: "Tetahealing",
+    titulo: "ThetaHealing",
     categoriaFiltro: "Terapias",
-    etiquetaSuperior: "PROCESOS DE DUELO",
-    descripcionBreve: "Información y precios próximamente.",
+    etiquetaSuperior: "TERAPIA HOLÍSTICA",
+    descripcionBreve: "Libera creencias limitantes y pensamientos negativos para abrir espacio a la paz, la abundancia y la confianza.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Libera creencias limitantes y pensamientos negativos para abrir espacio a la paz, la abundancia y la confianza."
   },
   {
     id: "tanatologia",
     titulo: "Tanatología",
     categoriaFiltro: "Terapias",
     etiquetaSuperior: "PROCESOS DE DUELO",
-    descripcionBreve: "Información y precios próximamente.",
+    descripcionBreve: "Disciplina que acompaña y orienta a las personas en procesos de duelo, pérdida y fin de vida, ayudando a encontrar paz, aceptación y sentido espiritual.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Disciplina que acompaña y orienta a las personas en procesos de duelo, pérdida y fin de vida, ayudando a encontrar paz, aceptación y sentido espiritual."
   },
   {
     id: "psicoterapia-transpersonal",
-    titulo: "Psicoterapia transpersonal",
+    titulo: "Psicoterapia Transpersonal",
     categoriaFiltro: "Terapias",
-    etiquetaSuperior: "PROCESOS DE DUELO",
-    descripcionBreve: "Información y precios próximamente.",
+    etiquetaSuperior: "TERAPIA HOLÍSTICA",
+    descripcionBreve: "Un acompañamiento profundo que te ayuda a sanar emociones, superar bloqueos y reconectar con tu esencia. Ideal para quienes buscan transformar su vida desde dentro.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Un acompañamiento profundo que te ayuda a sanar emociones, superar bloqueos y reconectar con tu esencia. Ideal para quienes buscan transformar su vida desde dentro."
   },
   {
     id: "masajes-reductivos-relajantes-y-linfaticos",
-    titulo: "Masajes reductivos, relajantes y linfáticos",
+    titulo: "Masaje Relajante",
     categoriaFiltro: "Terapias",
-    etiquetaSuperior: "BELLEZA",
-    descripcionBreve: "Información y precios próximamente.",
+    etiquetaSuperior: "BIENESTAR",
+    descripcionBreve: "Terapia manual que reduce el estrés, calma la mente y relaja la musculatura, brindando bienestar integral y descanso profundo.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Terapia manual que reduce el estrés, calma la mente y relaja la musculatura, brindando bienestar integral y descanso profundo."
   },
   {
     id: "temazcal",
     titulo: "Temazcal",
     categoriaFiltro: "Terapias",
-    etiquetaSuperior: "BELLEZA",
-    descripcionBreve: "Información y precios próximamente.",
+    etiquetaSuperior: "CEREMONIAS",
+    descripcionBreve: "Antigua tradición de origen prehispánico que utiliza el vapor de hierbas medicinales para purificar el cuerpo, liberar emociones y revitalizar el espíritu.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Antigua tradición de origen prehispánico que utiliza el vapor de hierbas medicinales para purificar el cuerpo, liberar emociones y revitalizar el espíritu."
   },
   {
     id: "aparatologia-corporal",
@@ -163,12 +181,12 @@ export const serviciosData = [
   },
   {
     id: "limpieza-y-armonizacion-facial",
-    titulo: "Limpieza y Armonización facial",
+    titulo: "Limpieza y Armonización Facial",
     categoriaFiltro: "Terapias",
     etiquetaSuperior: "BELLEZA",
-    descripcionBreve: "Información y precios próximamente.",
+    descripcionBreve: "Más que estética: libera tu piel de impurezas, relaja tu rostro y recupera luminosidad. Una experiencia que combina belleza y bienestar interior.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Más que estética: libera tu piel de impurezas, relaja tu rostro y recupera luminosidad. Una experiencia que combina belleza y bienestar interior."
   },
   {
     id: "limpieza-oido-conos-de-cera",
@@ -199,12 +217,12 @@ export const serviciosData = [
   },
   {
     id: "circulo-de-mujeres",
-    titulo: "Círculo de mujeres",
+    titulo: "Círculo de Mujeres",
     categoriaFiltro: "Talleres",
     etiquetaSuperior: "COMUNIDAD",
-    descripcionBreve: "Información y precios próximamente.",
+    descripcionBreve: "Un espacio seguro y amoroso donde compartes experiencias, sanas emociones y fortaleces tu energía femenina. Aquí encuentras apoyo, conexión y crecimiento personal.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Un espacio seguro y amoroso donde compartes experiencias, sanas emociones y fortaleces tu energía femenina. Aquí encuentras apoyo, conexión y crecimiento personal."
   },
   {
     id: "sanacion-de-abortos",
@@ -216,13 +234,31 @@ export const serviciosData = [
     descripcionLarga: "Información y precios próximamente."
   },
   {
+    id: "angelologia",
+    titulo: "Angelología",
+    categoriaFiltro: "Terapias",
+    etiquetaSuperior: "ESPIRITUALIDAD",
+    descripcionBreve: "Estudio y práctica enfocada en la conexión con los ángeles, promoviendo guía espiritual, protección y mensajes de luz para el crecimiento personal.",
+    detallesLista: [],
+    descripcionLarga: "Estudio y práctica enfocada en la conexión con los ángeles, promoviendo guía espiritual, protección y mensajes de luz para el crecimiento personal."
+  },
+  {
+    id: "ceremonias-holisticas",
+    titulo: "Ceremonias Holísticas",
+    categoriaFiltro: "Terapias",
+    etiquetaSuperior: "CEREMONIAS",
+    descripcionBreve: "Rituales que integran cuerpo, mente y espíritu, creando espacios de conexión profunda, sanación y renovación energética.",
+    detallesLista: [],
+    descripcionLarga: "Rituales que integran cuerpo, mente y espíritu, creando espacios de conexión profunda, sanación y renovación energética."
+  },
+  {
     id: "numerologia",
     titulo: "Numerología",
     categoriaFiltro: "Terapias",
-    etiquetaSuperior: "CEREMONIAS",
-    descripcionBreve: "Información y precios próximamente.",
+    etiquetaSuperior: "ESPIRITUALIDAD",
+    descripcionBreve: "Descubre el poder de tus números para entender tu camino de vida, tus talentos y tus retos. Una guía práctica para conocerte mejor y tomar decisiones con claridad.",
     detallesLista: [],
-    descripcionLarga: "Información y precios próximamente."
+    descripcionLarga: "Descubre el poder de tus números para entender tu camino de vida, tus talentos y tus retos. Una guía práctica para conocerte mejor y tomar decisiones con claridad."
   },
   {
     id: "talleres-presenciales-y-virtuales",
