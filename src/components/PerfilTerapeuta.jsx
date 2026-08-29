@@ -3,10 +3,16 @@ import { useParams } from 'react-router-dom';
 import { terapeutasData } from '../data/terapeutas';
 
 // Vite necesita rutas ESTÁTICAS para poder empaquetar las imágenes en el build.
-const imagenesPerfil = import.meta.glob('./Perfil Gisel/*.{webp,png,jpg,jpeg}', {
-  eager: true,
-  import: 'default',
-});
+const imagenesPerfil = {
+  ...import.meta.glob('./Perfil Gisel/*.{webp,png,jpg,jpeg}', {
+    eager: true,
+    import: 'default',
+  }),
+  ...import.meta.glob('./Perfil Maru/*.{webp,png,jpg,jpeg}', {
+    eager: true,
+    import: 'default',
+  }),
+};
 
 function resolverImagen(ruta) {
   if (!ruta) return null;

@@ -42,10 +42,68 @@ export const terapeutasData = [
   },
   {
     id: "maria-eugenia",
-    nombre: "María Eugenia Arellano",
+    nombre: "María Eugenia Arellano Reynoso",
     foto: maruFoto,
-    especialidad: "Terapeuta",
-    descripcion: "Información próximamente...",
-    constancias: []
+    especialidad: "Logoterapia y bienestar integral",
+    descripcion:
+      "María Eugenia Arellano Reynoso es una terapeuta dedicada a cultivar el bienestar integral, combinando una profunda formación en salud emocional y desarrollo humano —como la Logoterapia y el acompañamiento humanista— con técnicas estéticas y corporales de vanguardia que incluyen microneedling, drenaje linfático y aparatología avanzada. Con un enfoque cálido, empático y sumamente cercano, María Eugenia ofrece un espacio seguro donde el cuidado del cuerpo y el equilibrio de la mente se encuentran, brindándote un acompañamiento profesional diseñado para que habites tu piel con total plenitud y armonía.",
+    constancias: [
+      {
+        titulo: "Constancia Logoterapia",
+        rutaImagen: "../components/Perfil Maru/logoterapia.webp"
+      },
+      {
+        titulo: "Constancia Acompañamiento humanista",
+        rutaImagen: "../components/Perfil Maru/humanista.webp"
+      },
+      {
+        titulo: "Constancia Micropuntura",
+        rutaImagen: "../components/Perfil Maru/micropuntura.webp"
+      },
+      {
+        titulo: "Constancia Drenaje linfático",
+        rutaImagen: "../components/Perfil Maru/drenaje.webp"
+      },
+      {
+        titulo: "Constancia Radiofrecuencia",
+        rutaImagen: "../components/Perfil Maru/radiofrecuencia.webp"
+      },
+      {
+        titulo: "Constancia Mesoterapia",
+        rutaImagen: "../components/Perfil Maru/mesoterapia.webp"
+      },
+      {
+        titulo: "Constancia Maderoterapia",
+        rutaImagen: "../components/Perfil Maru/maderoterapia.webp"
+      },
+      {
+        titulo: "Constancia Dermapen",
+        rutaImagen: "../components/Perfil Maru/dermapen.webp"
+      },
+      {
+        titulo: "Constancia Plasma Pen",
+        rutaImagen: "../components/Perfil Maru/plasmapen.webp"
+      },
+      {
+        titulo: "Constancia Hilos de colágeno",
+        rutaImagen: "../components/Perfil Maru/hilos_colageno.webp"
+      },
+      {
+        titulo: "Constancia Tensado",
+        rutaImagen: "../components/Perfil Maru/tensado.webp"
+      },
+      {
+        titulo: "Constancia Auriculoterapia",
+        rutaImagen: "../components/Perfil Maru/auriculoterapia.webp"
+      },
+      {
+        titulo: "Constancia Botulínica",
+        rutaImagen: "../components/Perfil Maru/butolinica.webp"
+      },
+      {
+        titulo: "Constancia Taller de emociones",
+        rutaImagen: "../components/Perfil Maru/taller_emociones.webp"
+      }
+    ]
   }
 ];
